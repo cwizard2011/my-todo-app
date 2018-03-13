@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const Todo = mongoose.model('Todo', {
   text: {
     type: String,
@@ -16,11 +17,17 @@ const Todo = mongoose.model('Todo', {
   },
   _creator: {
     type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
     required: true
-  }
+  },
+  collaborators: [String]
 });
 
 const Task = mongoose.model('Task', {
+  todoId: String,
+  dueDate: Date,
+  reminder: {type: Schema.Types.ObjectId, ref: 'User'},
+  createdAt: {type: Date, default: Date.now},
   text: {
     type: String,
     required: true,

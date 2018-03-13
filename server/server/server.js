@@ -255,7 +255,7 @@ app.patch('/api/v1/todos/:id/tasks/:id', authenticate, (req, res) => {
 
 app.post('/api/v1/users', async (req, res) => {
   try {
-    const body = _.pick(req.body, ['email', 'password']);
+    const body = _.pick(req.body, ['email', 'password', 'userName']);
     const user = new User(body);
     await user.save();
     const token = await user.generateAuthToken();
