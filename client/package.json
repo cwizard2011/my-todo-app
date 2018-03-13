@@ -1,8 +1,0 @@
-{
-  "name": "client",
-  "version": "1.0.0",
-  "description": "Front end of the todo api",
-  "main": "index.js",
-  "author": "Adeoye Peter Adeola",
-  "license": "MIT"
-}

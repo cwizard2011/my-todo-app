@@ -26,7 +26,7 @@ const Todo = mongoose.model('Todo', {
 const Task = mongoose.model('Task', {
   todoId: String,
   dueDate: Date,
-  reminder: {type: Schema.Types.ObjectId, ref: 'User'},
+  reminder: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   createdAt: {type: Date, default: Date.now},
   text: {
     type: String,

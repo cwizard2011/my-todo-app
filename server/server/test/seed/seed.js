@@ -7,6 +7,9 @@ const userOneId = new ObjectID();
 const userTwoId = new ObjectID();
 
 const users = [{
+  userName: 'userA',
+  firstName: 'nameA',
+  lastName: 'nameA1',
   _id: userOneId,
   email: 'cwizard@example.com',
   password: 'userOnePass',
@@ -15,6 +18,9 @@ const users = [{
     token: jwt.sign({_id: userOneId, access: 'auth'}, process.env.JWT_SECRET).toString()
   }]
 }, {
+  userName: 'userB',
+  firstName: 'nameB',
+  lastName: 'nameB1',
   _id: userTwoId,
   email: 'jen@example.com',
   password: 'userTwoPass',

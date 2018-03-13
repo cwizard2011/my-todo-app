@@ -12,6 +12,7 @@ beforeEach(populateUsers)
 beforeEach(populateTodos);
 beforeEach(populateTasks);
 
+
 describe('POST /api/v1/todos', () => {
   it('should create a new todo', (done) => {
     let text = 'Test todo text';
@@ -486,15 +487,21 @@ describe('POST /api/v1/users', () => {
   it('should create a user', (done) => {
     let email= 'example@peter.com';
     let password = '123def';
+    let userName = 'ccwizard';
+    let firstName = 'Ade';
+    let lastName = 'Bisi';
 
     request(app)
       .post('/api/v1/users')
-      .send({email, password})
+      .send({email, password, userName, firstName, lastName})
       .expect(200)
       .expect((res) => {
         expect(res.headers['x-auth']).toBeTruthy();
         expect(res.body._id).toBeTruthy();
-        expect(res.body.email).toBe(email)
+        expect(res.body.email).toBe(email);
+        // expect(res.body.userName).toEqual(userName);
+        // expect(res.body.firstName).toBe(firstName);
+        // expect(res.body.lastName).toBe(lastName);
       })
       .end((err) => {
         if (err) {

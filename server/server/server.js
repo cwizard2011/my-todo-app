@@ -12,7 +12,7 @@ const {Todo, Task} = require('./models/todo');
 const {Upload} = require('./models/upload')
 const {User} = require('./models/user');
 const {authenticate} = require('./middleware/authenticate');
-const {cloud} = require('../cloudfile')
+const {cloud} = require('./cloudfile')
 const cloudinary = require('cloudinary');
 const app = express();
 const port = process.env.PORT;
@@ -255,7 +255,7 @@ app.patch('/api/v1/todos/:id/tasks/:id', authenticate, (req, res) => {
 
 app.post('/api/v1/users', async (req, res) => {
   try {
-    const body = _.pick(req.body, ['email', 'password', 'userName']);
+    const body = _.pick(req.body, ['email', 'password', 'userName', 'firstName', 'lastName']);
     const user = new User(body);
     await user.save();
     const token = await user.generateAuthToken();
