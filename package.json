@@ -4,13 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon  server/server/server.js --exec babel-node",
-    "local": "babel-node  server/server/server.js",
-    "test": "export NODE_ENV=test || SET \"NODE_ENV=test\" && mocha server/**/*.test.js --timeout 100000 --exit",
-    "heroku-postbuild": "webpack -p --config webpack.config.js",
-    "test:client": "jest __tests__ --updateSnapshot --coverage cli",
-    "coverage": "nyc --reporter=html --reporter=text --reporter=lcov mocha --reporter spec --require babel-register server/tests/**/*.js --timeout 600000 --exit",
-    "coveralls": "npm run coverage -- --report lcovonly && cat coverage/lcov.info | coveralls"
+    "start": "node server/server.js",
+    "test": "mocha --require babel-register server/tests/**/*.js --timeout 100000 --exit",
+    "test-watch": "nodemon --exec 'npm test'"
   },
   "engines": {
     "node": "8.9.2"

@@ -3,3 +3,5 @@ server/server/config/config.json
 server/cloudfile.js
 server/server/image_uploader/
 server/playground/
+client/
+webpack.config.js
